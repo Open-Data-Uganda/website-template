@@ -6,20 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./dist/output.css" />
   <title>MobileForms Africa</title>
+  <!-- Preload custom fonts -->
+  <link rel="preload" href="./fonts/Avenir LT Std 35 Light.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="./fonts/Avenir LT Std 65 Medium.otf" as="font" type="font/otf" crossorigin>
   <!-- Add Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
-<body class="font-sans">
+<body>
   <!-- Navigation Bar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center">
-        <a href="#" class="text-2xl font-bold text-white">mobile<span class="text-blue-400">Forms</span></a>
+        <a href="#" class="text-2xl font-bold text-white" id="navbar-logo">mobile<span
+            class="text-blue-400">Forms</span></a>
       </div>
       <div class="hidden md:flex space-x-6 items-center">
         <div class="relative group">
-          <button class="flex items-center space-x-1 py-2 text-white" onclick="toggleDropdown('product-dropdown')">
+          <button class="flex items-center space-x-1 py-2 text-white nav-link"
+            onclick="toggleDropdown('product-dropdown')">
             <span>Product</span>
             <i class="fas fa-chevron-down text-xs"></i>
           </button>
@@ -30,7 +35,8 @@
           </div>
         </div>
         <div class="relative group">
-          <button class="flex items-center space-x-1 py-2 text-white" onclick="toggleDropdown('industries-dropdown')">
+          <button class="flex items-center space-x-1 py-2 text-white nav-link"
+            onclick="toggleDropdown('industries-dropdown')">
             <span>Industries</span>
             <i class="fas fa-chevron-down text-xs"></i>
           </button>
@@ -42,14 +48,23 @@
             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Retail</a>
           </div>
         </div>
-        <a href="#" class="py-2 text-white">The Network</a>
-        <a href="#" class="py-2 text-white">Our Team</a>
-        <a href="#" class="py-2 text-white">Login</a>
-        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium">GET STARTED</a>
+        <a href="#" class="py-2 text-white nav-link">The Network</a>
+        <a href="#" class="py-2 text-white nav-link">Our Team</a>
+        <a href="#" class="py-2 text-white nav-link">Login</a>
+        <a href="#" class="py-2 text-white nav-link" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition">GET
+          STARTED</a>
       </div>
-      <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
+      <div class="md:hidden flex items-center space-x-4">
+        <a href="#" class="text-white" aria-label="Search">
+          <i class="fas fa-search text-xl"></i>
+        </a>
+        <button class="text-white" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -63,6 +78,14 @@
       </button>
     </div>
     <div class="p-4">
+      <!-- Search bar for mobile menu -->
+      <div class="mb-4 relative">
+        <input type="text" placeholder="Search..."
+          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
       <div class="py-3 border-b">
         <button onclick="toggleMobileSubmenu('mobile-product')" class="flex justify-between items-center w-full">
           <span class="text-lg">Product</span>
@@ -96,15 +119,12 @@
   </div>
 
   <!-- Hero Section -->
-  <div class="relative h-screen pt-16">
-    <!-- Background Image with Overlay -->
+  <div class="relative lg:h-[80vh] h-screen pt-16">
     <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
     <div id="hero-background" class="absolute inset-0 bg-cover bg-center"></div>
 
-    <!-- Blue Dots Overlay (will be added with JavaScript) -->
     <div id="dots-container" class="absolute inset-0 z-20"></div>
 
-    <!-- Content -->
     <div
       class="relative z-30 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white">
       <h1 class="text-4xl md:text-6xl font-bold mb-6 max-w-4xl">
@@ -115,6 +135,316 @@
       </p>
     </div>
   </div>
+
+  <!-- What We Do Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-xl text-yellow-500 font-medium mb-4">WHAT WE DO</h2>
+      <p class="text-2xl md:text-3xl text-gray-700 max-w-3xl mx-auto">
+        It is difficult to get reliable and verifiable data out of
+        Africa so we built a mobile technology and a network
+        of 100,000 field agents to solve this problem.
+      </p>
+    </div>
+  </section>
+
+  <!-- Create Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+        <h3 class="text-yellow-500 font-medium mb-2">CREATE</h3>
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">GO PAPERLESS, GET ORGANIZED</h2>
+        <p class="text-gray-700 mb-4">
+          Design your questionaries, surveys and campaigns using our easy to use drag
+          and drop formbuilder. Discuss your project with us and we will have a Mobile
+          Forms Expert convert your key objectives into a This versatile form builder
+          can be beneficial for a wide range of projects and industries, including
+          betting platforms like <a href="#" class="text-blue-500">keo nha cái</a>. In the world of online betting,
+          gathering
+          data and insights from users is crucial for understanding their preferences,
+          improving user experience, and making informed decisions.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="bg-blue-400 h-12 w-full rounded mb-4"></div>
+          <div class="bg-gray-200 h-6 w-full rounded mb-3"></div>
+          <div class="bg-gray-200 h-6 w-3/4 rounded mb-3"></div>
+          <div class="bg-gray-200 h-6 w-1/2 rounded mb-3"></div>
+          <div class="bg-gray-200 h-6 w-full rounded mb-3"></div>
+          <div class="bg-gray-200 h-6 w-2/3 rounded mb-3"></div>
+          <div class="flex justify-end">
+            <div class="bg-gray-200 h-8 w-24 rounded"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collect Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0 md:pl-8">
+        <div class="max-w-xs mx-auto">
+          <div class="bg-white rounded-3xl shadow-xl p-4 pb-8 relative">
+            <!-- Phone Outline -->
+            <div class="w-full h-full rounded-2xl overflow-hidden border-8 border-gray-100">
+              <!-- Phone Notch -->
+              <div class="w-24 h-6 bg-gray-100 rounded-b-xl mx-auto mb-2"></div>
+
+              <!-- Phone Content -->
+              <div class="bg-gray-50 p-4 rounded-xl">
+                <!-- Blue Header -->
+                <div class="bg-blue-400 h-12 w-full rounded mb-4"></div>
+
+                <!-- Form Items with Green Checkmarks -->
+                <div class="flex items-center mb-3">
+                  <div class="text-green-500 mr-2"><i class="fas fa-check-square"></i></div>
+                  <div class="bg-gray-200 h-6 w-full rounded"></div>
+                </div>
+
+                <div class="flex items-center mb-3">
+                  <div class="text-green-500 mr-2"><i class="fas fa-check-square"></i></div>
+                  <div class="bg-gray-200 h-6 w-full rounded"></div>
+                </div>
+
+                <div class="flex items-center mb-3">
+                  <div class="text-green-500 mr-2"><i class="fas fa-check-square"></i></div>
+                  <div class="bg-gray-200 h-6 w-full rounded"></div>
+                </div>
+
+                <div class="flex items-center mb-3">
+                  <div class="text-green-500 mr-2"><i class="fas fa-check-square"></i></div>
+                  <div class="bg-gray-200 h-6 w-full rounded"></div>
+                </div>
+
+                <div class="flex items-center mb-6">
+                  <div class="text-green-500 mr-2"><i class="fas fa-check-square"></i></div>
+                  <div class="bg-gray-200 h-6 w-2/3 rounded"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                  <div class="bg-blue-400 h-8 w-24 rounded"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:w-1/2">
+        <h3 class="text-yellow-500 font-medium mb-2">COLLECT</h3>
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">CAPTURE DATA USING MOBILE</h2>
+        <p class="text-gray-700 mb-4">
+          Share your forms across all devices of your team members or setup a campaign and
+          leverage our diverse network of field agents to conduct your surveys, campaigns and
+          data projects.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analyze Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+        <h3 class="text-yellow-500 font-medium mb-2">ANALYZE</h3>
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">BETTER DATA, BETTER DECISIONS</h2>
+        <p class="text-gray-700 mb-4">
+          We have done the heavy lifting for you. Tons of reliable and verifiable data flowing
+          into your dashboard periodically. Get your data science team to start making sense
+          out of your data or engage our team of Data experts to help unleash the potential of
+          your data.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <div class="bg-white p-6 rounded-lg overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            alt="Data dashboard visualization" class="w-full h-auto rounded-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Blog Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">OUR LATEST INSIGHTS</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Stay updated with the latest trends, case studies, and insights about data collection in Africa.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Blog Post 1 -->
+        <div class="rounded-lg overflow-hidden border border-gray-200 transition-all duration-300">
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="Data Collection in Rural Areas"
+              class="w-full h-56 object-cover blog-image transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> June 15, 2023</span>
+              <span><i class="far fa-user mr-1"></i> By Admin</span>
+            </div>
+            <h3 class="text-xl font-bold text-blue-900 mb-3">Improving Data Collection in Rural African Communities</h3>
+            <p class="text-gray-700 mb-4">
+              Discover how mobile technology is revolutionizing data collection in remote areas where traditional
+              methods fail.
+            </p>
+            <a href="#" class="inline-block text-blue-600 font-medium hover:text-blue-800 transition">
+              Read More <i class="fas fa-arrow-right ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="rounded-lg overflow-hidden border border-gray-200 transition-all duration-300">
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="Healthcare Data Collection"
+              class="w-full h-56 object-cover blog-image transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> May 28, 2023</span>
+              <span><i class="far fa-user mr-1"></i> By Sarah</span>
+            </div>
+            <h3 class="text-xl font-bold text-blue-900 mb-3">Case Study: Healthcare Data Collection in Uganda</h3>
+            <p class="text-gray-700 mb-4">
+              How our platform helped healthcare providers collect vital patient information in underserved regions of
+              Uganda.
+            </p>
+            <a href="#" class="inline-block text-blue-600 font-medium hover:text-blue-800 transition">
+              Read More <i class="fas fa-arrow-right ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="rounded-lg overflow-hidden border border-gray-200 transition-all duration-300">
+          <div class="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="Data Analysis Dashboard"
+              class="w-full h-56 object-cover blog-image transition-transform duration-500">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-2">
+              <span class="mr-3"><i class="far fa-calendar-alt mr-1"></i> April 10, 2023</span>
+              <span><i class="far fa-user mr-1"></i> By Michael</span>
+            </div>
+            <h3 class="text-xl font-bold text-blue-900 mb-3">5 Ways to Improve Your Data Analysis Strategy</h3>
+            <p class="text-gray-700 mb-4">
+              Learn practical tips to enhance your data analysis process and extract more valuable insights from your
+              collected data.
+            </p>
+            <a href="#" class="inline-block text-blue-600 font-medium hover:text-blue-800 transition">
+              Read More <i class="fas fa-arrow-right ml-1 text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#"
+          class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition">
+          View All Articles
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <!-- Footer Top Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
+        <!-- Logo Column -->
+        <div class="lg:col-span-1">
+          <a href="#" class="inline-block mb-6">
+            <svg class="h-10 w-10 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="3" rx="1" fill="currentColor"></rect>
+              <rect x="3" y="10" width="18" height="3" rx="1" fill="currentColor"></rect>
+              <rect x="3" y="17" width="12" height="3" rx="1" fill="currentColor"></rect>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Company Column -->
+        <div class="lg:col-span-1">
+          <h3 class="text-lg font-semibold mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-blue-300 transition">About</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Blog</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Terms of Use</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Privacy</a></li>
+          </ul>
+        </div>
+
+        <!-- Product Column -->
+        <div class="lg:col-span-1">
+          <h3 class="text-lg font-semibold mb-4">Product</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-blue-300 transition">Mobile Data Platform</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Pricing</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Our Network</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Become a Field Agent</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions Column -->
+        <div class="lg:col-span-1">
+          <h3 class="text-lg font-semibold mb-4">Solutions</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-blue-300 transition">Non Profits</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Market Research</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Government</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Startups</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources Column -->
+        <div class="lg:col-span-1">
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-blue-300 transition">Help/Support</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Case Studies</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Developers</a></li>
+            <li><a href="#" class="hover:text-blue-300 transition">Download Android App</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Section -->
+      <div class="pt-8 border-t border-blue-800 flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p class="text-sm text-blue-300">© <span id="currentYear"></span> MobileForms. All Rights Reserved.</p>
+          <script>
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+          </script>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-blue-300 hover:text-white transition">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-blue-300 hover:text-white transition">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-blue-300 hover:text-white transition">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="./js/main.js"></script>
 
@@ -134,6 +464,20 @@
         transform: scale(0.8);
         opacity: 0.3;
       }
+    }
+
+    /* Add hero background image */
+    #hero-background {
+      background-image: url('https://images.unsplash.com/photo-1535068484622-7a077e5aa558?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+    }
+
+    /* Blog image hover animation */
+    .blog-image {
+      transition: transform 0.5s ease;
+    }
+
+    .blog-image:hover {
+      transform: scale(1.1);
     }
   </style>
 </body>

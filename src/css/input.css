@@ -1,1 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/* Custom Font */
+@font-face {
+  font-family: 'Avenir LT Std';
+  src: url('../fonts/Avenir\ LT\ Std\ 35\ Light.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts/Avenir\ LT\ Std\ 65\ Medium.otf') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    font-family: "Avenir LT Std", 'Poppins', sans-serif;
+    line-height: 30.4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Avenir', 'Poppins', sans-serif;
+  }
+}
