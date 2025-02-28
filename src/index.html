@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./dist/output.css" />
+  <title>MobileForms Africa</title>
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="font-sans">
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="#" class="text-2xl font-bold text-white">mobile<span class="text-blue-400">Forms</span></a>
+      </div>
+      <div class="hidden md:flex space-x-6 items-center">
+        <div class="relative group">
+          <button class="flex items-center space-x-1 py-2 text-white" onclick="toggleDropdown('product-dropdown')">
+            <span>Product</span>
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div id="product-dropdown" class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-50 hidden">
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Product Feature 1</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Product Feature 2</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Product Feature 3</a>
+          </div>
+        </div>
+        <div class="relative group">
+          <button class="flex items-center space-x-1 py-2 text-white" onclick="toggleDropdown('industries-dropdown')">
+            <span>Industries</span>
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div id="industries-dropdown"
+            class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-50 hidden">
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Healthcare</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Agriculture</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Education</a>
+            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-100">Retail</a>
+          </div>
+        </div>
+        <a href="#" class="py-2 text-white">The Network</a>
+        <a href="#" class="py-2 text-white">Our Team</a>
+        <a href="#" class="py-2 text-white">Login</a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md font-medium">GET STARTED</a>
+      </div>
+      <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+    <div class="flex justify-between items-center p-4 border-b">
+      <a href="#" class="text-2xl font-bold">mobile<span class="text-blue-600">Forms</span></a>
+      <button onclick="toggleMobileMenu()" class="text-gray-600">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+    </div>
+    <div class="p-4">
+      <div class="py-3 border-b">
+        <button onclick="toggleMobileSubmenu('mobile-product')" class="flex justify-between items-center w-full">
+          <span class="text-lg">Product</span>
+          <i class="fas fa-chevron-down text-xs"></i>
+        </button>
+        <div id="mobile-product" class="hidden mt-2 pl-4">
+          <a href="#" class="block py-2">Product Feature 1</a>
+          <a href="#" class="block py-2">Product Feature 2</a>
+          <a href="#" class="block py-2">Product Feature 3</a>
+        </div>
+      </div>
+      <div class="py-3 border-b">
+        <button onclick="toggleMobileSubmenu('mobile-industries')" class="flex justify-between items-center w-full">
+          <span class="text-lg">Industries</span>
+          <i class="fas fa-chevron-down text-xs"></i>
+        </button>
+        <div id="mobile-industries" class="hidden mt-2 pl-4">
+          <a href="#" class="block py-2">Healthcare</a>
+          <a href="#" class="block py-2">Agriculture</a>
+          <a href="#" class="block py-2">Education</a>
+          <a href="#" class="block py-2">Retail</a>
+        </div>
+      </div>
+      <a href="#" class="block py-3 text-lg border-b">The Network</a>
+      <a href="#" class="block py-3 text-lg border-b">Our Team</a>
+      <a href="#" class="block py-3 text-lg border-b">Login</a>
+      <div class="mt-4">
+        <a href="#" class="block bg-blue-600 text-white px-4 py-3 rounded-md font-medium text-center">GET STARTED</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="relative h-screen pt-16">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+    <div id="hero-background" class="absolute inset-0 bg-cover bg-center"></div>
+
+    <!-- Blue Dots Overlay (will be added with JavaScript) -->
+    <div id="dots-container" class="absolute inset-0 z-20"></div>
+
+    <!-- Content -->
+    <div
+      class="relative z-30 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 max-w-4xl">
+        WHAT DO YOU WANT TO KNOW ABOUT UGANDA?
+      </h1>
+      <p class="text-xl md:text-2xl max-w-3xl">
+        We crowdsource reliable data from many public domain sources
+      </p>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+
+  <style>
+    @keyframes pulse {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+      }
+    }
+  </style>
+</body>
+
+</html>
